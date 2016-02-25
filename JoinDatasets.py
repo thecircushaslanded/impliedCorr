@@ -7,15 +7,29 @@ data_loc = "/a/nas1-bt/space/if.udata/optionmetrics/"
 data_loc2 = "/if/home/m1rab03/data/impliedCorr/"
 program_loc = os.getcwd()
 
-for option in [True, False]:
-    if option:
-        STOXX=False
+# Join optionmetrics datasets with weights
+def join_datasets(index):
+    """
+    Joins weights data with the volatility data and
+    names data from OptionMetrics.
+
+    Parameters:
+    -----------
+    index: str
+       'FTSE' or 'STOXX'.  Other indices must be
+       added by changing the code below.
+    """
+    if index == "FTSE":
+        FTSE = True
+        STOXX = False
+    elif index == "STOXX":
+        FTSE = False
+        STOXX = True
     else:
-        STOXX=True
-    FTSE = ~STOXX
+        raise Exception(ValueError)
     # Load the data.
-    df = pd.read_csv(data_loc+"Selection.csv")
-    SECNM = pd.read_csv(data_loc+"IVYSECNM.csv")
+    df = pd.read_csv(data_loc+"csv/Vol.csv")
+    SECNM = pd.read_csv(data_loc+"csv/IVYSECNM.csv")
     SECNM.drop_duplicates(inplace=True)
     if STOXX:
         weights = pd.read_csv(data_loc2+"STOXX_weights_from_pdf.csv") 
@@ -65,4 +79,7 @@ for option in [True, False]:
         comb.to_csv(data_loc2+"STOXXCombinedData.csv", index=False)
     if FTSE:
         comb.to_csv(data_loc2+"FTSECombinedData.csv", index=False)
+
+join_datasets("STOXX")
+join_datasets("FTSE")
 

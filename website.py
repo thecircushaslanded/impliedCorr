@@ -47,13 +47,13 @@ make_index()
 for page in vc_pages:
     # Var and Cor pages
     if page == "STOXX":
-        graphs = ["STOXX_summary", "STOXX_CallsOverPuts"] 
+        graphs = ["STOXX_summary"] 
     elif page == "FTSE":
-        graphs = ["FTSE_summary", "FTSE_CallsOverPuts"] 
+        graphs = ["FTSE_summary"] 
     elif page == "CAC":
-        graphs = ["CAC_summary", "CAC_CallsOverPuts"]
+        graphs = ["CAC_summary"]
     elif page == "DAX":
-        graphs = ["DAX_summary", "DAX_CallsOverPuts"]
+        graphs = ["DAX_summary"]
     else:
         print page
     make_page(graphs, page)
