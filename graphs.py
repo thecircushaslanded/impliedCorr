@@ -34,7 +34,7 @@ def cop_graph(index):
             dt.datetime.strptime(str(x), "%Y-%m-%d"))
     df = dfs[dfs["SecurityID"]==id][["Date", "CallOverPut"]] 
     df = df.sort_values("Date")
-    p = figure(title="Call over Put - "+index, 
+    p = figure(title="Call Over Put - "+index, 
             x_axis_type="datetime", 
             plot_width=plot_width, 
             toolbar_location='left')
