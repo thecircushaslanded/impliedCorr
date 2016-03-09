@@ -4,6 +4,7 @@ import os
 import pandas as pd
 
 data_loc = "/a/nas1-bt/space/if.udata/optionmetrics/"
+data_loc = "/if/udata/optionmetrics/"
 data_loc2 = "/if/home/m1rab03/data/impliedCorr/"
 program_loc = os.getcwd()
 

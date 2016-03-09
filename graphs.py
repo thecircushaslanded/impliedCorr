@@ -9,7 +9,8 @@ from bokeh.embed import components
 from ComputeCorr import compute_corr
 
 
-data_loc = "/a/nas1-bt/space/if.udata/optionmetrics/"
+# data_loc = "/a/nas1-bt/space/if.udata/optionmetrics/"
+data_loc = "/if/udata/optionmetrics/"
 data_loc2 = "/if/home/m1rab03/data/impliedCorr/"
 
 plot_width = 1200

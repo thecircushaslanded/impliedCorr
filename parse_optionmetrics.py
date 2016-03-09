@@ -2,13 +2,15 @@ import os
 import glob 
 import zipfile
 import fileinput
+import datetime as dt
 from subprocess import call
 
 import numpy as np
 import pandas as pd
 
 
-data_loc = "/a/nas1-bt/space/if.udata/optionmetrics/"
+# data_loc = "/a/nas1-bt/space/if.udata/optionmetrics/"
+data_loc = "/if/udata/optionmetrics/"
 program_loc = os.getcwd()
 
 date = "20150731"
@@ -149,7 +151,7 @@ def CallOverPut(date):
     COP["Date"] = dt.datetime.strptime(date, "%Y%m%d")
     return COP
 
-os.chdir(data_loc+"raw_zip")
+os.chdir(data_loc+"raw_zip/")
 file_no = 0
 print("Beginning to process data")
 files = glob.glob("INTL.IVYDB.*.zip")
@@ -169,6 +171,7 @@ for file in files:
     except:
         redo=True
     if redo:
+        print date
         i = get_ivol(date)
         r = get_histvol(date, index_ID)
         p = get_price(date, index_ID)
@@ -189,6 +192,7 @@ for file in files:
             i.to_csv("Vol{}D.temp".format(date), 
                 index=False, header=False)
             print(" Historical price and volatility data were missing.")
+        os.chdir(data_loc+"raw_zip/")
     try:
         # The file might be empty, which is no use to us.
         if os.stat("../temp/CallOverPut{}D.temp".format(date)).st_size < 1:
