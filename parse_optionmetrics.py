@@ -9,8 +9,8 @@ import numpy as np
 import pandas as pd
 
 
-# data_loc = "/a/nas1-bt/space/if.udata/optionmetrics/"
-data_loc = "/if/udata/optionmetrics/"
+
+data_loc = ""
 program_loc = os.getcwd()
 
 date = "20150731"
