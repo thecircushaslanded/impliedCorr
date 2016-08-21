@@ -3,8 +3,8 @@ import os
 
 import pandas as pd
 
-dates = glob.glob("/a/nas1-bt/space/rsma.markit_sf/src/20*am")
-dates = glob.glob("/rsma/markit_sf/src/20*am")
+data_loc = ""
+dates = glob.glob(data_loc+"/20*am")
 
 dates = [date for date in dates if date[-10:-4] == "201510"]
 program_dir = os.getcwd()
