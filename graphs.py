@@ -9,9 +9,9 @@ from bokeh.embed import components
 from ComputeCorr import compute_corr
 
 
-# data_loc = "/a/nas1-bt/space/if.udata/optionmetrics/"
-data_loc = "/if/udata/optionmetrics/"
-data_loc2 = "/if/home/m1rab03/data/impliedCorr/"
+data_loc = ""
+data_loc2 = ""
+server_loc = ""
 
 plot_width = 1200
 
@@ -44,11 +44,9 @@ def cop_graph(index):
     p.legend.location = "top_left"
     p.xgrid[0].ticker.desired_num_ticks = 13
     """script, div = components(p)
-    with open("/lcl/if/appl/www/php/fm/GCM_files/LiquidityAndCorr/"+
-            index+"_CallsOverPuts_div.html", 'w') as f:
+    with open(server_loc+index+"_CallsOverPuts_div.html", 'w') as f:
         f.write(div)
-    with open("/lcl/if/appl/www/php/fm/GCM_files/LiquidityAndCorr/"+
-            index+"_CallsOverPuts_script.html", 'w') as f:
+    with open(server_loc+index+"_CallsOverPuts_script.html", 'w') as f:
         f.write(script)"""
     return p
 
@@ -122,11 +120,9 @@ output_file(index+"Summary.html")
 
 g = gridplot([[c], [v], [p], [cop]], toolbar_location='left')
 script, div = components(g)
-with open("/lcl/if/appl/www/php/fm/GCM_files/LiquidityAndCorr/"+
-        index+"_summary_div.html", 'w') as f:
+with open(server_loc+index+"_summary_div.html", 'w') as f:
     f.write(div)
-with open("/lcl/if/appl/www/php/fm/GCM_files/LiquidityAndCorr/"+
-        index+"_summary_script.html", 'w') as f:
+with open(server_loc+index+"_summary_script.html", 'w') as f:
     f.write(script)
 
 # show(g)
@@ -146,11 +142,9 @@ output_file(index+"Summary.html")
 
 g = gridplot([[c], [v], [p], [cop]], toolbar_location='left')
 script, div = components(g)
-with open("/lcl/if/appl/www/php/fm/GCM_files/LiquidityAndCorr/"+
-        index+"_summary_div.html", 'w') as f:
+with open(server_loc+index+"_summary_div.html", 'w') as f:
     f.write(div)
-with open("/lcl/if/appl/www/php/fm/GCM_files/LiquidityAndCorr/"+
-        index+"_summary_script.html", 'w') as f:
+with open(server_loc+index+"_summary_script.html", 'w') as f:
     f.write(script)
 
 # show(g)
@@ -163,11 +157,9 @@ output_file(index+"Summary.html")
 
 g = gridplot([[cop]], toolbar_location='left')
 script, div = components(g)
-with open("/lcl/if/appl/www/php/fm/GCM_files/LiquidityAndCorr/"+
-        index+"_summary_div.html", 'w') as f:
+with open(server_loc+index+"_summary_div.html", 'w') as f:
     f.write(div)
-with open("/lcl/if/appl/www/php/fm/GCM_files/LiquidityAndCorr/"+
-        index+"_summary_script.html", 'w') as f:
+with open(server_loc+index+"_summary_script.html", 'w') as f:
     f.write(script)
 
 # show(g)
@@ -180,11 +172,9 @@ output_file(index+"Summary.html")
 
 g = gridplot([[cop]], toolbar_location='left')
 script, div = components(g)
-with open("/lcl/if/appl/www/php/fm/GCM_files/LiquidityAndCorr/"+
-        index+"_summary_div.html", 'w') as f:
+with open(server_loc+index+"_summary_div.html", 'w') as f:
     f.write(div)
-with open("/lcl/if/appl/www/php/fm/GCM_files/LiquidityAndCorr/"+
-        index+"_summary_script.html", 'w') as f:
+with open(server_loc+index+"_summary_script.html", 'w') as f:
     f.write(script)
 
 # show(g)
