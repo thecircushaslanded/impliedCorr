@@ -3,7 +3,7 @@ from subprocess import call
 
 import pandas as pd
 
-data_loc2 = "/lcl/if/home/m1rab03/data/impliedCorr/"
+data_loc2 = ""
 program_loc = os.getcwd()
 
 print("Go to http://www.ftse.com/analytics/factsheets/Home/ConstituentsWeights",
