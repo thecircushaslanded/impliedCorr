@@ -4,7 +4,7 @@ from itertools import permutations
 import pandas as pd
 
 
-data_loc2 = "/if/home/m1rab03/data/impliedCorr/"
+data_loc2 = ""
 
 def compute_corr(index, n_days, corr_type="implied"):
     """
