@@ -1,19 +1,21 @@
 import os
 
+server_loc = ""
+
 vc_pages = ["STOXX", "FTSE", "CAC", "DAX"]
 l_pages  = ["France", "Germany", "Italy"]
 
 
-vc_links = ["            <a href=\"/php/if/fm/GCM_files/LiquidityAndCorr/{}.php\">{}</a>,  \n".format(
-    page.replace(" ", ""), page) for page in vc_pages]
+vc_links = ["            <a href=\"{}{}.php\">{}</a>,  \n".format(
+    server_loc, page.replace(" ", ""), page) for page in vc_pages]
 vc_links[-1] = vc_links[-1][:-4] # Remove floating comma
-l_links  = ["            <a href=\"/php/if/fm/GCM_files/LiquidityAndCorr/{}.php\">{}</a>,  \n".format(
-    page.replace(" ", ""), page) for page in l_pages]
+l_links  = ["            <a href=\"{}{}.php\">{}</a>,  \n".format(
+    server_loc, page.replace(" ", ""), page) for page in l_pages]
 l_links[-1] = l_links[-1][:-4] # Remove floating comma
 
 
 def make_page(graphs, page_name):
-    os.chdir("/lcl/if/appl/www/php/fm/GCM_files/LiquidityAndCorr/")
+    os.chdir(server_loc)
     scripts = ["        <?php include(\"{}_script.html\"); ?>\n".format(
             graph) for graph in graphs]
     divs = ["        <?php include(\"{}_div.html\"); ?>\n".format(
@@ -30,7 +32,7 @@ def make_page(graphs, page_name):
         page.write(page_str)
 
 def make_index():
-    os.chdir("/lcl/if/appl/www/php/fm/GCM_files/LiquidityAndCorr/")
+    os.chdir(server_loc)
     with open("template.html", 'r') as page:
         page_str = "".join(page.read())
         page_str = page_str.replace("PAGE_TITLE", "Charts")
