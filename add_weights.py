@@ -3,9 +3,8 @@ import os
 
 import pandas as pd
 
-data_loc = "/a/nas1-bt/space/if.udata/optionmetrics/"
-data_loc = "/if/udata/optionmetrics/"
-data_loc2 = "/if/home/m1rab03/data/impliedCorr/"
+data_loc = ""
+data_loc2 = ""
 program_loc = os.getcwd()
 
 # Join optionmetrics datasets with weights
