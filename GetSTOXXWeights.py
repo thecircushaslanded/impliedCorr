@@ -3,7 +3,7 @@ from subprocess import call
 
 import pandas as pd
 
-data_loc = "/lcl/data/scratch/m1rab03/impliedCorr/"
+data_loc = ""
 program_loc = os.getcwd()
 
 print("Save http://www.stoxx.com/document/Bookmarks/CurrentComponents/SX5GT.pdf"
